@@ -15,9 +15,32 @@ export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  // const [scrolling, setScrolling] = useState(false);
+
+  // const handleScroll = () => {
+  //   if (window.scrollY > 0) {
+  //     setScrolling(true);
+  //   } else {
+  //     setScrolling(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+  // ${scrolling ? "bg-white" : "bg-transparent"}
+
   return (
-    <header className="w-full h-15 flex justify-around align-middle text-black border-b border-zinc-200 fixed top-0">
-      <div className="text-neutral-800 text-2xl font-extrabold p-4 w-1/2 md:w-1/4">
+    <header
+      className={`w-full h-15 flex justify-around align-middle text-black border-b border-zinc-200 fixed top-0 z-20 transition-colors duration-400 bg-white`}
+    >
+      <div
+        className="text-neutral-800 text-2xl font-extrabold
+      py-3 sm:p-3 w-1/2 md:w-1/4"
+      >
         <NavLink to="/">BKC/NEXSA</NavLink>
       </div>
       <nav
@@ -37,13 +60,14 @@ export default function Header() {
           <NavLink
             to={link.to}
             key={link.name}
+            onClick={() => setIsOpen(false)}
             className="text-white md:text-black md:px-4 lg:px-5 hover:font-bold transition-all"
           >
             {link.name}
           </NavLink>
         ))}
       </nav>
-      <div className="flex justify-end px-5 w-1/4 md:hidden">
+      <div className="flex justify-end sm:px-5 w-1/4 md:hidden">
         <button onClick={() => setIsOpen(true)}>
           <CgMenuLeft className="text-3xl" />
         </button>

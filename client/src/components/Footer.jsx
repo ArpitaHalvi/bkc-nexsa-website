@@ -80,13 +80,13 @@ export default function Footer() {
           &copy; {year} BKC & NEXSA. All rights reserved.
         </p>
         <div className="flex justify-center gap-4">
-          <a href="" className="text-white text-x">
+          <a href="" className="text-white text-2xl">
             <FaInstagram />
           </a>
-          <a href="" className="text-white text-x">
+          <a href="" className="text-white text-2xl">
             <FaFacebook />
           </a>
-          <a href="" className="text-white text-x">
+          <a href="" className="text-white text-2xl">
             <FaWhatsapp />
           </a>
         </div>

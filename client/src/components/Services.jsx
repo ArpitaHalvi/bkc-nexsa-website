@@ -10,20 +10,21 @@ export default function Services() {
   ];
   return (
     <section className="w-full p-5 flex flex-col justify-center items-center mt-20">
-      <h2 className="text-bold md:text-3xl font-bold tracking-tighter">
+      <h2 className="text-bold text-3xl font-bold tracking-tighter">
         Features we offer
       </h2>
-      <div className="w-3/4 flex p-4 pt-20 justify-center items-center gap-5">
+      <div className="my-3 w-30 h-1 bg-amber-600 mx-auto"></div>
+      <div className="w-full md:w-3/4 p-4 pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 sm:gap-5">
         {features.map((feature) => (
           <div
             key={feature.title}
             className="rounded w-full h-40 flex flex-col justify-start items-center gap-3 relative"
           >
-            <div className="absolute top-5 left-30 w-15 h-15 bg-amber-600 z-1 rounded-b-4xl rounded-tl-4xl opacity-30"></div>
-            <p className="text-black text-2xl md:text-7xl z-4">
+            <div className="absolute left-60 md:left-40 top-5 lg:left-30 w-15 h-15 bg-amber-600 z-1 rounded-b-4xl rounded-tl-4xl opacity-30 hidden md:block"></div>
+            <p className="text-black text-5xl sm:text-7xl z-4">
               {feature.icon}
             </p>
-            <h4 className="font-semibold tracking-tighter w-3/4 text-center leading-tight z-4 pt-5">
+            <h4 className="font-semibold tracking-tighter w-full md:w-3/4 text-center leading-tight z-4 sm:pt-5">
               {feature.title}
             </h4>
           </div>
