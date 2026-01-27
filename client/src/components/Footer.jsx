@@ -17,7 +17,7 @@ export default function Footer() {
     { name: "Services", to: "/services" },
   ];
   return (
-    <footer className="w-full bg-neutral-800 text-white py-8 lg:pt-12 mt-20 md:absolute md:bottom-0">
+    <footer className="w-full bg-neutral-800 text-white py-8 lg:pt-12 mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 sm:px-6 lg:px-10 max-w-8xl mx-auto">
         <div className="flex flex-col py-5 lg:py-0">
           <div className="text-white text-2xl p-1 font-extrabold w-1/4">
@@ -77,26 +77,16 @@ export default function Footer() {
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-4 sm:px-6 lg:px-10 max-w-8xl mx-auto">
         <p className="text-sm text-center md:text-left">
-          &copy; {year} <span className="text-amber-400">BKC & NEXSA.</span> All
-          rights reserved.
+          &copy; {year} BKC & NEXSA. All rights reserved.
         </p>
         <div className="flex justify-center gap-4">
-          <a
-            href=""
-            className="text-white text-xl hover:text-amber-400 transition-colors"
-          >
+          <a href="" className="text-white text-x">
             <FaInstagram />
           </a>
-          <a
-            href=""
-            className="text-white text-xl hover:text-amber-400 transition-colors"
-          >
+          <a href="" className="text-white text-x">
             <FaFacebook />
           </a>
-          <a
-            href=""
-            className="text-white text-xl hover:text-amber-400 transition-colors"
-          >
+          <a href="" className="text-white text-x">
             <FaWhatsapp />
           </a>
         </div>

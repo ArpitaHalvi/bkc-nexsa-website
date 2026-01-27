@@ -7,10 +7,10 @@ import { IoMdClose } from "react-icons/io";
 export default function Header() {
   const links = [
     { name: "Home", to: "/" },
-    { name: "About Us", to: "/" },
-    { name: "BKC Series", to: "/" },
-    { name: "NEXSA Series", to: "/" },
-    { name: "Services", to: "/" },
+    { name: "About Us", to: "/about" },
+    { name: "BKC Series", to: "/bkc-series" },
+    { name: "NEXSA Series", to: "/nexsa-series" },
+    { name: "Services", to: "/services" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
