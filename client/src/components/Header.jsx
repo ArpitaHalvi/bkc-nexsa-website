@@ -10,7 +10,7 @@ export default function Header() {
     { name: "About Us", to: "/about" },
     { name: "BKC Series", to: "/bkc-series" },
     { name: "NEXSA Series", to: "/nexsa-series" },
-    { name: "Services", to: "/services" },
+    { name: "Contact", to: "/contact-us" },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -35,13 +35,16 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full h-15 flex justify-around align-middle text-black border-b border-zinc-200 fixed top-0 z-20 transition-colors duration-400 bg-white`}
+      className={`w-full h-16 flex justify-between items-center text-black border-b border-zinc-200 fixed top-0 z-20 transition-colors duration-400 bg-white px-4`}
     >
-      <div
-        className="text-neutral-800 text-2xl font-extrabold
-      py-3 sm:p-3 w-1/2 md:w-1/4"
-      >
-        <NavLink to="/">BKC/NEXSA</NavLink>
+      <div className="w-20 md:w-24">
+        <NavLink to="/">
+          <img
+            src="/images/bkc-logo-bg-removed.png"
+            alt="Brand Logo"
+            className="w-full h-auto object-contain"
+          />
+        </NavLink>
       </div>
       <nav
         className={`fixed md:static top-0 left-0 h-screen md:h-auto w-full md:w-3/4 
@@ -67,7 +70,7 @@ export default function Header() {
           </NavLink>
         ))}
       </nav>
-      <div className="flex justify-end sm:px-5 w-1/4 md:hidden">
+      <div className="flex justify-end w-1/4 md:hidden">
         <button onClick={() => setIsOpen(true)}>
           <CgMenuLeft className="text-3xl" />
         </button>

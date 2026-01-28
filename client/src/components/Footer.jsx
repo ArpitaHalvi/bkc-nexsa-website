@@ -21,7 +21,11 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 sm:px-6 lg:px-10 max-w-8xl mx-auto">
         <div className="flex flex-col py-5 lg:py-0">
           <div className="text-white text-2xl p-1 font-extrabold w-1/4">
-            <NavLink to="/">BKC/NEXSA</NavLink>
+            <img
+              src="/images/bkc-logo-bg-removed.png"
+              alt="Brand Logo"
+              className="w-full h-auto object-contain"
+            />
           </div>
           <p className="text-white text-sm p-1 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
