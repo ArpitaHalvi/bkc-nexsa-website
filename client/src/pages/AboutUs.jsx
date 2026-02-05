@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import CountUp from "../animation/CountUp";
 
 export default function AboutUs() {
   const stats = [
@@ -32,19 +33,26 @@ export default function AboutUs() {
           amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
           consectetur reprehenderit officiis cumque unde adipisci, debitis cum
           modi ratione fugit nihil necessitatibus earum expedita sint natus
-          laborum assumenda eos, doloremque illum alias doloribus, voluptatem
-          quia laudantium! Tenetur, provident molestias, minus quisquam facere
-          repellendus qui voluptatum vel error suscipit commodi beatae velit
-          tationem iste sed consectetur! Quia veritatis voluptates eligendi
-          blanditiis. Consequatur.
+          laborum assumenda eos, doloremque illum alias d tationem iste sed
+          consectetur! Quia veritatis voluptates eligendi blanditiis.
+          Consequatur.
         </p>
       </section>
       <div className="w-full flex flex-col justify-center items-center mt-20">
         <div className="grid grid-cols-2 w-full md:w-3/4 items-center text-center py-10 px-5 md:gap-5">
           {stats.map((stat) => (
             <div key={stat.label} className="py-5">
-              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter">
-                {stat.value}
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter bg-linear-to-r from-amber-700 via-amber-600 to-white bg-clip-text text-transparent">
+                <CountUp
+                  from={0}
+                  to={stat.value.replace("+", "")}
+                  separator=","
+                  direction="up"
+                  duration={1}
+                  className="count-up-text "
+                  startCounting
+                />
+                {stat.value.includes("+") && "+"}
               </h3>
               <p className="text-gray-600 font-semibold tracking-tighter">
                 {stat.label}

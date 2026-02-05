@@ -46,3 +46,121 @@ body {
   right: 0;
   background: linear-gradient(to left, white, transparent);
 }
+
+.text-color {
+  /* color: #bb5900; */
+  color: #f4793a;
+}
+
+.bg-color {
+  /* background-color: #bb5900;*/
+  background-color: #f4793a;
+}
+
+.bg-color-2 {
+  background-color: "#8498AC";
+}
+.bg-color-3 {
+  background-color: "#C5939D";
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-border {
+  background-size: 200% 200%;
+  animation: borderMove 3s linear infinite;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animate-text {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+.arc-scene {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  perspective: 2500px;
+  perspective-origin: center;
+}
+
+/* THIS rotates the cylinder */
+.arc-rotator {
+  position: relative;
+  width: 600px;
+  height: 420px;
+  transform-style: preserve-3d;
+  animation: rotateArc 5s linear infinite;
+}
+
+/* Each card */
+.arc-face {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  transform-style: preserve-3d;
+}
+
+/* Card visuals */
+.arc-face img {
+  width: 170px;
+  height: 300px;
+  /* width: 130px; */
+  /* height: 250px; */
+  object-fit: cover;
+  border-radius: 15px;
+  background-color: black;
+  /* transform: translate(-50%, -50%); */
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* 🔥 THE CYLINDER MOTION */
+@keyframes rotateArc {
+  0% {
+    transform: rotateX(360deg) rotateY(-18deg);
+  }
+  50% {
+    transform: rotateX(360deg) rotateY(18deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(-18deg);
+  }
+}
+
+.logo-scratch {
+  filter: drop-shadow(500px 5px white);
+  transform: translateX(-500px);
+}

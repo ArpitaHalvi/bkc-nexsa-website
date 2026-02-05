@@ -21,24 +21,26 @@ export default function Services() {
     },
   ];
   return (
-    <section className="w-full p-5 flex flex-col justify-center items-center mt-20">
-      <h2 className="text-bold text-2xl font-bold tracking-tighter">
+    <section className="w-full p-5 flex flex-col justify-center items-center bg-black h-screen">
+      <h2 className="text-bold text-2xl font-bold tracking-tighter uppercase">
         Features we offer
       </h2>
-      <div className="my-1 sm:my-3 w-30 h-1 bg-amber-600 mx-auto"></div>
-      <div className="w-full md:w-3/4 p-4 pt-10 sm:pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8">
+      {/* <div className="my-1 sm:my-3 w-30 h-1 bg-color mx-auto"></div> */}
+      <div className="w-3/4 pt-10 sm:pt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8 ">
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="rounded w-full h-40 flex flex-col justify-start items-center gap-3 relative transition-transform duration-400 hover:-translate-y-6.25"
+            className="w-full flex flex-col justify-start items-center gap-3 transition-transform duration-400 bg-white shadow-2xl rounded overflow-hidden relative h-70"
           >
-            {/* <div className="absolute left-60 md:left-40 top-5 lg:left-30 w-15 h-15 bg-amber-600 z-1 rounded-b-4xl rounded-tl-4xl opacity-30 hidden md:block"></div> */}
-            <p className="text-white text-4xl sm:text-6xl z-4 shadow-2xl p-6 sm:p-7 rounded-full border-2 bg-amber-600 flex justify-center items-center">
-              {feature.icon}
-            </p>
-            <h4 className="font-semibold tracking-tighter w-full md:w-3/4 text-center leading-tight z-4 sm:pt-5 text-black">
+            <h4 className="tracking-tighter w-full md:w-3/4 text-start font-bold leading-6 z-4 sm:pt-5 text-black text-2xl">
               {feature.title}
             </h4>
+            <p
+              className="text-black text-4xl sm:text-8xl z-4  p-6 h-50 sm:p-10 flex justify-center items-center absolute -bottom-10 left-0 right-0 rounded-t-full"
+              style={{ backgroundColor: "#C5939D" }}
+            >
+              {feature.icon}
+            </p>
           </div>
         ))}
       </div>
