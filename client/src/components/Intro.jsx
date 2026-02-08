@@ -1,7 +1,7 @@
 // import { NavLink } from "react-router-dom";
 // import { AnimatePresence, motion } from "framer-motion";
 // import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const images = [
   "/images/cc-board-1.png",
@@ -13,6 +13,98 @@ const images = [
   "/images/nexsa-display.png",
   "/images/cc-board-1.png",
 ];
+
+const cards = [
+  { name: "Sancy Display", image: "/images/sancy-displays.png" },
+  { name: "BKC Display", image: "/images/bkc-displays.png" },
+  { name: "Sancy Battery", image: "/images/sancy-battery.png" },
+  { name: "BKC Battery", image: "/images/bkc-battery.png" },
+  { name: "Nexsa Battery", image: "/images/nexsa-battery.png" },
+  { name: "Sancy Battery", image: "/images/sancy-battery.png" },
+  { name: "Nexsa Display", image: "/images/nexsa-displays.png" },
+];
+
+function CylinderCarousel() {
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation((prev) => prev + 0.5);
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  const cardAngle = 360 / cards.length;
+  const radius = 300;
+
+  return (
+    <div className="relative w-full h-screen overflow-hidden bg-transparent">
+      <div
+        className="relative w-full h-full flex items-center justify-center"
+        style={{ perspective: "2500px" }}
+      >
+        <div
+          style={{
+            transformStyle: "preserve-3d",
+            transform: `rotateX(-10deg) rotateZ(-15deg) rotateY(${rotation}deg)`,
+            width: `${radius * 2}px`,
+            height: `${radius * 2}px`,
+          }}
+          className="relative transition-transform"
+        >
+          {cards.map((card, index) => {
+            const angle = index * cardAngle + (rotation % 360);
+            const rad = (angle * Math.PI) / 180;
+            const x = Math.cos(rad) * radius;
+            const z = Math.sin(rad) * radius;
+
+            return (
+              <div
+                key={card.id}
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
+                  width: "250px",
+                  height: "320px",
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  marginLeft: "-140px",
+                  marginTop: "-150px",
+                }}
+              >
+                <div className="relative w-full h-full">
+                  <div
+                    style={{
+                      transform: "rotateY(0deg)",
+                      backfaceVisibility: "hidden",
+                    }}
+                    className="absolute inset-0 bg-black overflow-hidden shadow-2xl"
+                  >
+                    <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
+                      <div>
+                        <h3 className="text-xl text-gray-300 tracking-tighter leading-tight">
+                          {card.name}
+                        </h3>
+                      </div>
+                      <div className="w-full h-48 overflow-hidden">
+                        <img
+                          src={card.image}
+                          alt={card.name}
+                          className="w-60 h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function CurvedArc() {
   const radius = 250;
@@ -44,7 +136,6 @@ function CurvedArc() {
 export default function Intro() {
   const ref = useRef(null);
   // const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
     <section
       className="w-full flex flex-col gap-10 justify-center items-center relative overflow-hidden h-screen bg-[#f4793a]"
@@ -56,13 +147,14 @@ export default function Intro() {
         </h1>
         <hr className="w-1/2 text-white border-3" />
       </div> */}
-      <div className="absolute top-15 sm:top-10 lg:-top-15">
-        <h1 className="text-white text-[10rem] sm:text-[15rem] md:text-[25rem] lg:text-[44rem] leading-tight font-bold">
+      <div className="absolute top-5 sm:top-10 lg:-top-15 px-10">
+        <h1 className="text-white text-[12rem] sm:text-[15rem] md:text-[25rem] lg:text-[44rem] leading-tight font-bold">
           BKC
         </h1>
       </div>
-      <CurvedArc />
-      <div className="absolute left-10 bottom-5 text-white text-2xl">
+      <CylinderCarousel />
+      {/* <CurvedArc /> */}
+      <div className="absolute left-10 bottom-20 md:bottom-5 lg:bottom-5 text-white text-2xl">
         INDIA'S <span className="font-bold">No. 1</span> <br />
         Mobile Spare Part Brand
       </div>

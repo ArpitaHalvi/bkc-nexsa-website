@@ -1,1 +1,53 @@
 @import "tailwindcss";
+
+/*  CURVED ARC IN THE INTRO SECTION */
+.arc-scene {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  perspective: 2500px;
+  /* perspective-origin: center; */
+}
+
+/* THIS rotates the cylinder */
+.arc-rotator {
+  position: relative;
+  width: 600px;
+  height: 420px;
+  transform-style: preserve-3d;
+  animation: rotateArc 5s linear infinite;
+}
+
+/* Each card */
+.arc-face {
+  position: absolute;
+  top: 15%;
+  left: 30%;
+  transform-style: preserve-3d;
+}
+
+/* Card visuals */
+.arc-face img {
+  width: 170px;
+  height: 300px;
+  /* width: 130px; */
+  /* height: 250px; */
+  object-fit: cover;
+  border-radius: 15px;
+  background-color: black;
+  /* transform: translate(-50%, -50%); */
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* 🔥 THE CYLINDER MOTION */
+@keyframes rotateArc {
+  0% {
+    transform: rotateX(360deg) rotateY(-18deg);
+  }
+  50% {
+    transform: rotateX(360deg) rotateY(18deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(-18deg);
+  }
+}
