@@ -5,16 +5,15 @@
 import Intro from "../components/Intro";
 import { useEffect, useState, useRef } from "react";
 // import { motion } from "framer-motion";
-import { MdBatteryChargingFull } from "react-icons/md";
-import { LiaTemperatureHighSolid } from "react-icons/lia";
-import { RiLinksFill } from "react-icons/ri";
-import { GoShieldCheck } from "react-icons/go";
+// import { MdBatteryChargingFull } from "react-icons/md";
+// import { LiaTemperatureHighSolid } from "react-icons/lia";
+// import { RiLinksFill } from "react-icons/ri";
+// import { GoShieldCheck } from "react-icons/go";
 import {
   BkcSection,
   NexsaSection,
   SancySection,
 } from "../components/SectionLayout";
-import Footer from "../components/Footer";
 
 // useEffect(() => {
 //   window.scrollTo(0, 0);
@@ -56,7 +55,7 @@ export default function Home() {
             activeCount={activeCount}
             component={SectionComponent}
           />
-          <div className="h-100"></div>
+          <div className="h-50"></div>
         </>
       ))}
     </div>

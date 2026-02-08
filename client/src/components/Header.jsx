@@ -36,7 +36,7 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full h-14 flex justify-between items-center fixed z-500 transition-all duration-400 px-7 md:px-4 ${!scrolling ? `bg-white text-black ${isHome && "border-b"}` : "bg-transparent text-white border-none"}`}
+      className={`w-full h-14 flex justify-between items-center fixed z-500 transition-all duration-400 px-7 md:px-4 ${!isHome && "bg-white"} ${!scrolling ? `bg-white text-black ${isHome && "border-b"}` : "bg-transparent text-white"}`}
     >
       <div className={`w-25 lg:mx-10 ${scrolling & isHome && "logo-scratch"}`}>
         <NavLink to="/">
@@ -67,7 +67,7 @@ export default function Header() {
             to={link.to}
             key={link.name}
             onClick={() => setIsOpen(false)}
-            className={`md:px-4 lg:px-5 transition-all duration-300 bg-linear-to-r px-2 mx-1 py-1 uppercase hover:font-bold ${scrolling ? "text-white" : "text-black"}`}
+            className={`md:px-4 lg:px-5 transition-all duration-300 bg-linear-to-r px-2 mx-1 py-1 uppercase hover:font-bold ${isOpen && !scrolling && "text-white"}  ${scrolling && isHome ? "text-white" : "text-black"}`}
           >
             {link.name}
           </NavLink>

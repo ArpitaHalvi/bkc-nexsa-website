@@ -10,7 +10,7 @@ export default function SectionLayout({ images, title, desc, robot }) {
         : "from-[#376fd1] to-[#afcdfe]";
   return (
     <div
-      className={`h-screen w-full grid grid-cols-1 lg:grid-cols-2 p-4 md:p-10 ${bgColor} bg-linear-to-br lg:bg-linear-to-r gap-5`}
+      className={`h-screen w-full grid grid-cols-1 lg:grid-cols-2 p-4 md:p-10 ${bgColor} bg-linear-to-br lg:bg-linear-to-r`}
     >
       {/* <NavLink
           to="/bkc-section"
@@ -128,7 +128,7 @@ export default function SectionLayout({ images, title, desc, robot }) {
                     pointer-events-none
                 "
                 >
-                  <h5 className="text-lg font-semibold text-gray-100 tracking-wide">
+                  <h5 className="text-lg font-semibold text-gray-100 tracking-wide p-3 leading-5">
                     {img.title}
                   </h5>
                 </div>
