@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
+  const isHome = useLocation().pathname === "/";
   const year = new Date().getFullYear();
   const legalLinks = [
     { name: "Privacy Policy", to: "/" },
@@ -17,10 +18,12 @@ export default function Footer() {
     { name: "Services", to: "/services" },
   ];
   return (
-    <footer className="w-full bg-neutral-800 text-white py-8 lg:pt-12 mt-20">
+    <footer
+      className={`w-full bg-neutral-800 text-white py-8 lg:pt-12 ${!isHome && "mt-10"}`}
+    >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 sm:px-6 lg:px-10 max-w-8xl mx-auto">
         <div className="flex flex-col py-5 lg:py-0">
-          <div className="text-white text-2xl p-1 font-extrabold w-1/4">
+          <div className="text-white text-2xl p-1 font-extrabold w-40 py-2">
             <img
               src="/images/bkc-logo-bg-removed.png"
               alt="Brand Logo"
@@ -81,7 +84,7 @@ export default function Footer() {
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-4 sm:px-6 lg:px-10 max-w-8xl mx-auto">
         <p className="text-sm text-center md:text-left">
-          &copy; {year} BKC & NEXSA. All rights reserved.
+          &copy; {year} BKC. All rights reserved.
         </p>
         <div className="flex justify-center gap-4">
           <a href="" className="text-white text-2xl">

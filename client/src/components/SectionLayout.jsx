@@ -103,12 +103,12 @@ export default function SectionLayout({ images, title, desc, robot }) {
             >
               <motion.div
                 className="relative inline-block rounded-lg overflow-hidden"
-                animate={{ y: [0, -10, 0] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                // animate={{ y: [0, -10, 0] }}
+                // transition={{
+                //   duration: 3,
+                //   repeat: Infinity,
+                //   ease: "easeInOut",
+                // }}
               >
                 <img
                   src={img.src}

@@ -1,11 +1,21 @@
 @import "tailwindcss";
 
+/* Register the font */
+@font-face {
+  font-family: "BisonBold";
+  src: url("../assets/fonts/BisonBold.ttf") format("truetype");
+  /* font-weight: normal; */
+  /* font-style: normal; */
+  /* font-display: swap;  */
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   padding-bottom: 0;
+  font-family: "BisonBold", sans-serif;
 }
 
 @keyframes conveyor {
@@ -163,4 +173,16 @@ body {
 .logo-scratch {
   filter: drop-shadow(500px 5px white);
   transform: translateX(-500px);
+}
+
+/* For Scroll animation */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

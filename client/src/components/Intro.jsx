@@ -56,13 +56,16 @@ export default function Intro() {
         </h1>
         <hr className="w-1/2 text-white border-3" />
       </div> */}
-      <div className="absolute -translate-5">
-        <h1 className="text-white text-6xl lg:text-[40rem] leading-tight tracking-tigher font-bold italic">
+      <div className="absolute top-15 sm:top-10 lg:-top-15">
+        <h1 className="text-white text-[10rem] sm:text-[15rem] md:text-[25rem] lg:text-[44rem] leading-tight font-bold">
           BKC
         </h1>
-        <hr className="w-1/2 text-white border-3" />
       </div>
       <CurvedArc />
+      <div className="absolute left-10 bottom-5 text-white text-2xl">
+        INDIA'S <span className="font-bold">No. 1</span> <br />
+        Mobile Spare Part Brand
+      </div>
       {/* <div className="absolute bottom-40 right-10 md:bottom-40 lg:bottom-20 md:right-20 lg:right-30">
         <h1 className="text-white text-6xl lg:text-9xl leading-tight tracking-tigher font-bold italic">
           NEXSA

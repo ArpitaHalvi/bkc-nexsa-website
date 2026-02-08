@@ -7,10 +7,11 @@ import NexsaSeries from "./pages/NexsaSeries.jsx";
 import Home from "./pages/Home.jsx";
 import { Routes, Route } from "react-router-dom";
 import ContactUs from "./pages/ContactUs.jsx";
+import SmoothScrollProvider from "./components/SmoothScrollProvider.jsx";
 
 function App() {
   return (
-    <>
+    <SmoothScrollProvider>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +21,7 @@ function App() {
         <Route path="/nexsa-series" element={<NexsaSeries />} />
       </Routes>
       <Footer></Footer>
-    </>
+    </SmoothScrollProvider>
   );
 }
 

@@ -36,11 +36,9 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full h-16 flex justify-between items-center text-white fixed z-50 transition-all duration-400 px-7 md:px-4 ${scrolling ? "bg-white" : "bg-transparent pt-5"}`}
+      className={`w-full h-14 flex justify-between items-center fixed z-500 transition-all duration-400 px-7 md:px-4 ${!scrolling ? `bg-white text-black ${isHome && "border-b"}` : "bg-transparent text-white border-none"}`}
     >
-      <div
-        className={`w-25 md:w-28 lg:mx-10 ${!scrolling & isHome && "logo-scratch"}`}
-      >
+      <div className={`w-25 lg:mx-10 ${scrolling & isHome && "logo-scratch"}`}>
         <NavLink to="/">
           <img
             src="/images/bkc-logo-bg-removed.png"
@@ -69,7 +67,7 @@ export default function Header() {
             to={link.to}
             key={link.name}
             onClick={() => setIsOpen(false)}
-            className={`md:px-4 lg:px-5 transition-all duration-300 hover:bg-white hover:text-black px-2 mx-1 py-1 rounded-full uppercase ${!isHome && "text-black"} ${scrolling ? "text-black" : !isHome ? "text-black" : "text-white"} `}
+            className={`md:px-4 lg:px-5 transition-all duration-300 bg-linear-to-r px-2 mx-1 py-1 uppercase hover:font-bold ${scrolling ? "text-white" : "text-black"}`}
           >
             {link.name}
           </NavLink>
@@ -78,7 +76,7 @@ export default function Header() {
       <div className="flex justify-end w-1/4 md:hidden">
         <button onClick={() => setIsOpen(true)}>
           <CgMenuLeft
-            className={`text-3xl  ${isHome ? "text-white" : "text-black"}`}
+            className={`text-3xl ${isHome && scrolling ? "text-white" : "text-black"}`}
           />
         </button>
       </div>
