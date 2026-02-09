@@ -115,7 +115,7 @@ function CylinderCarousel() {
                       backfaceVisibility: "hidden",
                       WebkitBackfaceVisibility: "hidden",
                     }}
-                    className="absolute inset-0 bg-neutral-800/60 shadow-2xl border border-gray-800"
+                    className="absolute inset-0 bg-neutral-800/60 shadow-2xl"
                   ></div>
                 </div>
               </div>
