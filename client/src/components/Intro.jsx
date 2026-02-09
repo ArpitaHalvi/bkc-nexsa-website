@@ -1,5 +1,5 @@
 // import { NavLink } from "react-router-dom";
-// import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 // import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
@@ -26,6 +26,20 @@ const cards = [
 
 function CylinderCarousel() {
   const [rotation, setRotation] = useState(0);
+  const [radius, setRadius] = useState(290);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      const width = window.innerWidth;
+      if (width < 480) setRadius(210);
+      else if (width < 640) setRadius(230);
+      else if (width < 768) setRadius(250);
+      else setRadius(290);
+    };
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+    return () => window.removeEventListener("resize", updateRadius);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,7 +49,6 @@ function CylinderCarousel() {
   }, []);
 
   const cardAngle = 360 / cards.length;
-  const radius = 300;
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-transparent">
@@ -50,52 +63,60 @@ function CylinderCarousel() {
             width: `${radius * 2}px`,
             height: `${radius * 2}px`,
           }}
-          className="relative transition-transform"
+          className={`relative transition-transform`}
         >
           {cards.map((card, index) => {
             const angle = index * cardAngle + (rotation % 360);
-            const rad = (angle * Math.PI) / 180;
-            const x = Math.cos(rad) * radius;
-            const z = Math.sin(rad) * radius;
-
+            // const rad = (angle * Math.PI) / 180;
+            // const x = Math.cos(rad) * radius;
+            // const z = Math.sin(rad) * radius;
             return (
               <div
                 key={card.id}
                 style={{
                   transformStyle: "preserve-3d",
                   transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
-                  width: "250px",
-                  height: "320px",
                   position: "absolute",
                   left: "50%",
                   top: "50%",
                   marginLeft: "-140px",
                   marginTop: "-150px",
                 }}
+                className="w-45 sm:w-50 h-55 sm:h-65 md:w-62.5 md:h-75"
               >
-                <div className="relative w-full h-full">
+                <div
+                  className="relative w-full h-full"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
                   <div
                     style={{
                       transform: "rotateY(0deg)",
                       backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
                     }}
-                    className="absolute inset-0 bg-black overflow-hidden shadow-2xl"
+                    className="absolute inset-0 bg-black overflow-hidden shadow-2xl z-10"
                   >
                     <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
-                      <div>
-                        <h3 className="text-xl text-gray-300 tracking-tighter leading-tight">
-                          {card.name}
-                        </h3>
-                      </div>
+                      <h3 className="text-xl text-gray-300 tracking-tighter leading-tight">
+                        {card.name}
+                      </h3>
                       <div className="w-full h-48 overflow-hidden">
                         <img
                           src={card.image}
                           alt={card.name}
-                          className="w-60 h-full object-cover"
+                          className="w-60 h-full object-contain sm:object-cover"
                         />
                       </div>
                     </div>
                   </div>
+                  <div
+                    style={{
+                      transform: "rotateY(180deg)",
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                    }}
+                    className="absolute inset-0 bg-neutral-800/60 shadow-2xl border border-gray-800"
+                  ></div>
                 </div>
               </div>
             );
@@ -147,12 +168,19 @@ export default function Intro() {
         </h1>
         <hr className="w-1/2 text-white border-3" />
       </div> */}
-      <div className="absolute top-5 sm:top-10 lg:-top-15 px-10">
+      <div className="absolute top-10 sm:top-10 lg:-top-15 px-10">
         <h1 className="text-white text-[12rem] sm:text-[15rem] md:text-[25rem] lg:text-[44rem] leading-tight font-bold">
           BKC
         </h1>
       </div>
-      <CylinderCarousel />
+      <motion.div
+        initial={{ y: 300 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="w-full"
+      >
+        <CylinderCarousel />
+      </motion.div>
       {/* <CurvedArc /> */}
       <div className="absolute left-10 bottom-20 md:bottom-5 lg:bottom-5 text-white text-2xl">
         INDIA'S <span className="font-bold">No. 1</span> <br />
